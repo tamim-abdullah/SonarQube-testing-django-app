@@ -18,3 +18,14 @@ def index(request):
         'form' : form
     }
     return render(request , 'TodoApp/list.html' , context)
+
+
+def update_task(request , pk):
+    task = Todo.objects.get(id=pk)
+    
+    form = TodoForm(instance=task)
+    
+    context = {
+        'form' : form
+    }
+    return render(request , 'TodoApp/update_task.html' , context)
