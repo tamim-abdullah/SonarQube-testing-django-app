@@ -25,6 +25,12 @@ def update_task(request , pk):
     
     form = TodoForm(instance=task)
     
+    if request.method == 'POST':
+        form = TodoForm(request.POST , instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    
     context = {
         'form' : form
     }
