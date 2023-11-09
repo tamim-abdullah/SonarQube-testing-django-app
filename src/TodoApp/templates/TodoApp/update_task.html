@@ -1,8 +1,88 @@
-<h3>Update Task</h3>
+<!DOCTYPE html>
+<html lang="en">
 
-<form method="POST" action="">
-    {% csrf_token %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Update Task</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
 
-    {{form}}
-    <input type="submit" name="Update Task">
-</form>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #153677, #4e085f);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h3 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 70%;
+        }
+
+        form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        form input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #4e085f, #153677);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background: linear-gradient(135deg, #153677, #4e085f);
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <h3>Update Task</h3>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" name="task" placeholder="Update your task..." required>
+            <input type="submit" value="Update Task">
+        </form>
+    </div>
+</body>
+
+</html>
