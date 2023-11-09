@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from .models import Todo
 
 def index(request):
-    return render(request , 'TodoApp/list.html')
+    tasks = Todo.objects.all()
+    context = {
+        'tasks' : tasks
+    }
+    return render(request , 'TodoApp/list.html' , context)
