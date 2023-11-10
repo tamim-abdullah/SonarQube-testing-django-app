@@ -1,6 +1,7 @@
 from django.shortcuts import render , redirect
 from .models import Todo
 from .forms import TodoForm , CreateUserForm
+from django.contrib import messages 
 
 def index(request):
     tasks = Todo.objects.all()
@@ -57,6 +58,9 @@ def register_user(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request , user + 'has been registeres successfully!')
+
             return redirect('/')
         
     context = {'form':form}
