@@ -1,7 +1,6 @@
 from django.shortcuts import render , redirect
-from django.contrib.auth.forms import UserCreationForm
 from .models import Todo
-from .forms import TodoForm
+from .forms import TodoForm , CreateUserForm
 
 def index(request):
     tasks = Todo.objects.all()
@@ -52,10 +51,10 @@ def delete_task(request , pk):
 
 
 def register_user(request):
-    form = UserCreationForm()
+    form = CreateUserForm()
     
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('/')
