@@ -1,4 +1,5 @@
 from django.shortcuts import render , redirect
+from django.contrib.auth.forms import UserCreationForm
 from .models import Todo
 from .forms import TodoForm
 
@@ -48,3 +49,16 @@ def delete_task(request , pk):
         return redirect('/')
     
     return render(request , 'TodoApp/delete.html' , context)
+
+
+def register_user(request):
+    form = UserCreationForm()
+    
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+        
+    context = {'form':form}
+    return render(request , 'TodoApp/register.html' , context)
