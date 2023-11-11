@@ -59,13 +59,15 @@ def register_user(request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
-            messages.success(request , user + 'has been registeres successfully!')
+            messages.success(request , user + ' has been registered successfully!')
 
-            return redirect('login/')
+            return redirect('login')
         
     context = {'form':form}
     return render(request , 'TodoApp/register.html' , context)
 
 def login_user(request):
-    context = {}
+    form = CreateUserForm(request.POST)
+
+    context = {'form':form}
     return render(request , 'TodoApp/login.html' , context)

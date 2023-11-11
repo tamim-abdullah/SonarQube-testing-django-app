@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
-    <link rel="stylesheet" href="{% static 'register.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'register.css' %}"> {% endcomment %}
 </head>
 <body>
     <div class="wrapper active-popup">
@@ -39,6 +39,9 @@
                     {{form.password2}}
 
                 </div>
+                {{form.errors}}
+
+                <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
 
                 <input type="submit" class="Registerbtn" value="Register" name="Register">
             </form>
