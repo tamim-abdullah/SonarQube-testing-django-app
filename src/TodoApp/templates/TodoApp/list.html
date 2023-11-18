@@ -99,12 +99,33 @@
         .completed-task {
             text-decoration: line-through;
         }
+
+        .hello-msg {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        .hello-msg a{
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .hello-msg a:hover{
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
 <body>
     <div class='container'>
         <h3>To Do List by Aditya Sharma</h3>
+
+        <span class='hello-msg'>
+            Hello , {{request.user}} <a href="{% url 'logout' %}">Logout</a>
+        </span>
 
         <form method="POST" action="/">
             {% csrf_token %}
