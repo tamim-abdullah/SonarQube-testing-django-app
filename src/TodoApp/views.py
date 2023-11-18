@@ -1,7 +1,8 @@
 from django.shortcuts import render , redirect
 from .models import Todo
 from .forms import TodoForm , CreateUserForm
-from django.contrib import messages 
+from django.contrib import messages
+from django.contrib.auth import authenticate , login , logout
 
 def index(request):
     tasks = Todo.objects.all()
@@ -69,5 +70,18 @@ def register_user(request):
 def login_user(request):
     form = CreateUserForm(request.POST)
 
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password1')
+        
+        user = authenticate(request , username=username , password=password)
+        
+        if user is not None:
+            login(request , user)
+            return redirect('/')
+        else:
+            messages.info(request , 'Credentials are incorrect!')
+
+        
     context = {'form':form}
     return render(request , 'TodoApp/login.html' , context)
