@@ -3,7 +3,10 @@ from .models import Todo
 from .forms import TodoForm , CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate , login , logout
+from django.contrib.auth.decorators import login_required
 
+
+@login_required(login_url='login')
 def index(request):
     tasks = Todo.objects.all()
     form = TodoForm()
@@ -22,6 +25,7 @@ def index(request):
     return render(request , 'TodoApp/list.html' , context)
 
 
+@login_required(login_url='login')
 def update_task(request , pk):
     task = Todo.objects.get(id=pk)
     
@@ -38,7 +42,7 @@ def update_task(request , pk):
     }
     return render(request , 'TodoApp/update_task.html' , context)
 
-
+@login_required(login_url='login')
 def delete_task(request , pk):
     item = Todo.objects.get(id=pk)
     context = {
