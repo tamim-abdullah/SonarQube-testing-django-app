@@ -57,7 +57,7 @@ def delete_task(request , pk):
 
 
 def register_user(request):
-    if user.is_authenticated:
+    if request.user.is_authenticated:
         return redirect('/')
     else:    
         form = CreateUserForm()
@@ -76,7 +76,7 @@ def register_user(request):
 
 def login_user(request):
     
-    if user.is_authenticated:
+    if request.user.is_authenticated:
         return redirect('/')
     
     else:
