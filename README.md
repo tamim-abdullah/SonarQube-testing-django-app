@@ -12,7 +12,7 @@ Welcome to Todo-Application, a robust Django project designed for efficient task
 
 1. **Clone the Repository:**
    ```shell
-   git clone https://github.com/your-username/Todo-Application.git
+   git clone https://github.com/adityaShar24/Django-todo.git
    cd Todo-Application
 
 2. **Install Dependencies:** 
@@ -60,7 +60,7 @@ Feel free to contribute to enhance the functionality of Todo-Application. Follow
 
 ## License 📄
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/adityaShar24/Django-todo/blob/main/LICENSE) file for details.
 
 ## Acknowledgments 🙏
 
