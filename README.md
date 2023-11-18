@@ -11,29 +11,27 @@ Welcome to Todo-Application, a robust Django project designed for efficient task
 ## Getting Started 🛠️
 
 1. **Clone the Repository:**
-   ```bash
+   ```shell
    git clone https://github.com/your-username/Todo-Application.git
    cd Todo-Application
 
 2. **Install Dependencies:** 
-```bash
+    ```shell
     pip install -r requirements.txt
-    ```
+ 
 
 3. **Apply Migrations:** 
-    ```bash
+    ```shell
     python manage.py migrate
-    ```
+
 
 4. **Create Superuser:** 
-```bash
+    ```shell
     python manage.py createsuperuser    
-```
 
 5. **Run Development Server:** 
-```bash
+    ```shell
     python manage.py runserver    
-```
 
 ## Usage 📌
 
@@ -43,8 +41,18 @@ Welcome to Todo-Application, a robust Django project designed for efficient task
 - **Login:**
   Visit [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) and login with the superuser credentials.
 
-- **Manage Tasks:**
-  Navigate to the task management section to create, update, and delete tasks.
+- **Create Tasks:**
+  Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) and create a task.
+
+- **Delete Task:**
+  Visit [http://127.0.0.1:8000/delete_task](http://127.0.0.1:8000/delete_task) and delete a task.
+
+- **Update Task:**
+  Visit [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) and update a task.
+
+- **Note:**
+  All steps informed here require login. These routes are protected with the `@login_required` decorator, and if not authenticated, you will be redirected to the login page ([http://127.0.0.1:8000/login/](http://127.0.0.1:8000/login/)).
+
 
 ## Contributing 🤝
 
