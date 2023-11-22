@@ -1,6 +1,6 @@
 from django.shortcuts import render , redirect
-from models import Todo
-from forms import TodoForm 
+from ..models import Todo
+from ..forms import TodoForm
 from django.contrib.auth.decorators import login_required
 
 

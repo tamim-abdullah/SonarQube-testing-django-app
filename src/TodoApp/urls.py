@@ -1,6 +1,7 @@
 from django.urls import path
-from views.auth_view import login_user, logout_user, register_user
-from views.tasks_view import index, update_task, delete_task
+from .views.tasks_view import index , update_task , delete_task
+from .views.auth_view import register_user , login_user , logout_user
+
 
 urlpatterns = [
     path('', index, name='list'),
