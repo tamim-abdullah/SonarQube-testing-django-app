@@ -48,7 +48,7 @@ Welcome to Todo-Application, a robust Django project designed for efficient task
   Visit [http://127.0.0.1:8000/delete_task](http://127.0.0.1:8000/delete_task) and delete a task.
 
 - **Update Task:**
-  Visit [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/) and update a task.
+  Visit [http://127.0.0.1:8000/update_task/](http://127.0.0.1:8000/admin/) and update a task.
 
 - **Note:**
   All steps informed here require login. These routes are protected with the `@login_required` decorator, and if not authenticated, you will be redirected to the login page ([http://127.0.0.1:8000/login/](http://127.0.0.1:8000/login/)).
