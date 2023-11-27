@@ -13,23 +13,26 @@ Welcome to Todo-Application, a robust Django project designed for efficient task
 1. **Clone the Repository:**
    ```shell
    git clone https://github.com/adityaShar24/Django-todo.git
-   cd Todo-Application
 
-2. **Install Dependencies:** 
+2. **Change the Directory**
+   ```shell
+    cd Todo-Application
+
+3. **Install Dependencies:** 
     ```shell
     pip install -r requirements.txt
  
 
-3. **Apply Migrations:** 
+4. **Apply Migrations:** 
     ```shell
     python manage.py migrate
 
 
-4. **Create Superuser:** 
+5. **Create Superuser:** 
     ```shell
     python manage.py createsuperuser    
 
-5. **Run Development Server:** 
+6. **Run Development Server:** 
     ```shell
     python manage.py runserver    
 
