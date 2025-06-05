@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Required for SonarQube git history analysis
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -31,10 +31,11 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
           sudo apt-get update && sudo apt-get install -y unzip
-          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
-          unzip sonar-scanner-cli-5.0.1.3006-linux.zip
-          export PATH=$PATH:$PWD/sonar-scanner-5.0.1.3006-linux/bin
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.1.0.4477-linux.zip
+          unzip sonar-scanner-cli-6.1.0.4477-linux.zip
+          export PATH=$PATH:/home/runner/work/SonarQube-testing-django-app/SonarQube-testing-django-app/sonar-scanner-6.1.0.4477-linux/bin
           sonar-scanner \
             -Dsonar.projectKey=tamim-abdullah_SonarQube-testing-django-app \
             -Dsonar.host.url=${{ env.SONAR_HOST_URL }} \
-            -Dsonar.login=${{ env.SONAR_TOKEN }}
+            -Dsonar.login=${{ env.SONAR_TOKEN }} \
+            -Dsonar.organization=tamim-abdullah || { echo "SonarQube scan failed"; exit 1; }
